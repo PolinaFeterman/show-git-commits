@@ -26,8 +26,9 @@ const main = () => {
 
   const data = fs.readFileSync(filePath,
             {encoding:'utf8', flag:'r'});
+  data.replace(/.$/,",")
 
-  fs.writeFileSync(filePath, data + fileContents);
+  fs.writeFileSync(filePath, data + fileContents + ']');
   console.log(`Wrote the following contents to ${filePath}\n${fileContents}`);
 };
 
