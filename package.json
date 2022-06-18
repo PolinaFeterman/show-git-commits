@@ -18,7 +18,7 @@
   },
   "scripts": {
     "git-info": "node src/gitInfo.js",
-    "start": "react-scripts start",
+    "start": "react-scripts start node src/gitInfo.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
