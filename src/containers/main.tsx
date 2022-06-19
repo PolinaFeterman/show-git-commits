@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import generatedGitInfo from '../generatedGitInfo.json';
-import CommitCard from './commitCard';
- function Main():JSX.Element{
-    return (<div className="git-info">{
-        generatedGitInfo.map(info => {return <CommitCard gitBranch={info.gitBranch} gitCommitHash={info.gitCommitHash}/>})};
-    {/* <p>
-      <strong>Git Branch:</strong>{' '}
-      <code>{generatedGitInfo.gitBranch}</code>
-    </p>
-    <p>
-      <strong>Git Commit Hash:</strong>{' '}
-      <code>{generatedGitInfo.gitCommitHash}</code>
-    </p> */}
-  </div>)
- }
+import { CommitCard }from './commitCard';
 
- export default Main;
+
+
+export const Main=()=>{
+   const [length,setLength] = useState(0);
+    const [abs,setAbs] = useState<boolean>(true);
+    
+const updateAPI = useEffect(()=>{
+   // fetch callAPI(abs);
+}, [abs]);
+
+    const f = () => {
+     setLength(length + 1);
+    };
+    return (
+        <>
+        <button onClick = {f}> {length}</button>
+    <div className="git-info">{
+       
+        generatedGitInfo.map((info,index) => {return <div key={index}>
+            <CommitCard gitBranch={info.gitBranch} gitCommitHash={info.gitCommitHash}/></div>})}
+ 
+  </div>
+  </>)
+ }

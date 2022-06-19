@@ -1,0 +1,10 @@
+.commit-card {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    background-color: rgb(230, 210, 210);
+    padding: 5px 10px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(195, 195, 209, 0.23);
+    transition: all 150ms ease-in-out;
+    animation: eMLfYp 300ms linear;
+  }

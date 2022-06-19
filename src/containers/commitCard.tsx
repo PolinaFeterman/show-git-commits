@@ -1,21 +1,24 @@
 import React from 'react'
-import CommitCardInterface from '../interfaces/CommitCardInterface'
-export default class CommitCard extends React.Component<CommitCardInterface, {}> {
-        constructor (props: CommitCardInterface){
-          super(props);
-        }
-    render():JSX.Element{
-        return (
-            <div className="git-info">
-            <p>
-              <strong>Git Branch:</strong>{' '}
-              <code>{this.props.gitBranch}</code>
-            </p>
-            <p>
-              <strong>Git Commit Hash:</strong>{' '}
-              <code>{this.props.gitCommitHash}</code>
-            </p>
-          </div>
-        )
-      }
-}
+import '../css/commitCard.css'
+
+export type commitCardProps = {
+    gitBranch: string;
+    gitCommitHash: string;
+};
+
+export const CommitCard = ( props: commitCardProps)=>{
+
+    return (
+        <div className="commit-card">
+        <p>
+          <strong>Git Branch:</strong>{' '}
+          <code>{props.gitBranch}</code>
+        </p>
+        <p>
+          <strong>Git Commit Hash:</strong>{' '}
+          <code>{props.gitCommitHash}</code>
+        </p>
+      </div>
+    )
+};
+
