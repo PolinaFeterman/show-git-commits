@@ -32,13 +32,9 @@ export  const App = () => {
     <div className="App">
 
     <Router>
-    <Layout/>
+      <Layout/>
       <AppRouters />
     </Router>
-      
-      {/* <Navigation/>
-      <Main/> */}
-      
     </div>
     </AppCtx.Provider>)
 
@@ -49,17 +45,9 @@ const Layout =() => {
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
       <nav>
-        <ul>
-          <li>
-            <Link to="/">Main</Link>
-          </li>
-          <li>
-            <Link to="/navigation">Navigation</Link>
-          </li>
-          
-        </ul>
+        <div><Link to="/">Main</Link></div>
+         <div><Link to="/navigation">Navigation</Link></div>
       </nav>
-
       <hr />
 
       {/* An <Outlet> renders whatever child route is currently active,
@@ -70,7 +58,7 @@ const Layout =() => {
   );
 }
 
-const NoMatch=() => {
+function NoMatch() {
   return (
     <div>
       <h2>Nothing to see here!</h2>
