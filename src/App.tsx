@@ -3,6 +3,13 @@ import './App.css';
 import { Main } from './containers/main';
 import {Navigation} from './containers/navigation';
 import AppContextInterface from "./interfaces/AppContextInterface";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useRoutes,
+  Outlet, Link
+} from "react-router-dom";
 
 export  const AppCtx = createContext<AppContextInterface | null>(null);
 export  const App = () => {
@@ -11,16 +18,66 @@ export  const App = () => {
     author: "thehappybug",
     url: "http://www.example.com",
   };
+  const AppRouters = () => {
+    let routes = useRoutes([
+      { path: "/", element: <Main /> },
+      { path: "navigation", element: <Navigation /> },
+      { path: "*", element: <NoMatch /> },
+    ]);
+    return routes;
+  };
 
  return(
   <AppCtx.Provider value={sampleAppContext}>
     <div className="App">
+
+    <Router>
+    <Layout/>
+      <AppRouters />
+    </Router>
       
-      <Navigation/>
-      <Main/>
+      {/* <Navigation/>
+      <Main/> */}
       
     </div>
     </AppCtx.Provider>)
 
+}
+const Layout =() => {
+  return (
+    <div>
+      {/* A "layout route" is a good place to put markup you want to
+          share across all the pages on your site, like navigation. */}
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Main</Link>
+          </li>
+          <li>
+            <Link to="/navigation">Navigation</Link>
+          </li>
+          
+        </ul>
+      </nav>
+
+      <hr />
+
+      {/* An <Outlet> renders whatever child route is currently active,
+          so you can think about this <Outlet> as a placeholder for
+          the child routes we defined above. */}
+      <Outlet />
+    </div>
+  );
+}
+
+const NoMatch=() => {
+  return (
+    <div>
+      <h2>Nothing to see here!</h2>
+      <p>
+        <Link to="/">Go to the home page</Link>
+      </p>
+    </div>
+  );
 }
 
