@@ -20,7 +20,7 @@ export  const App = () => {
   };
   const AppRouters = () => {
     let routes = useRoutes([
-      { path: "/", element: <Main /> },
+      { path: "/", element: <Main orgName="PolinaFeterman" perPage={2}/> },
       { path: "navigation", element: <Navigation /> },
       { path: "*", element: <NoMatch /> },
     ]);
@@ -45,7 +45,7 @@ const Layout =() => {
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
       <nav>
-        <div><Link to="/">Main</Link></div>
+        <div className='main'><Link to="/">Main</Link></div>
          <div><Link to="/navigation">Navigation</Link></div>
       </nav>
       <hr />
