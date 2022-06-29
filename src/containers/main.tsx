@@ -6,6 +6,7 @@ import { CommitCard }from './commitCard';
 import ReactPaginate from "react-paginate";
 
 import ReactDOM from "react-dom";
+import { useParams } from 'react-router';
 
 
 // Util for GitHub API.
@@ -59,6 +60,8 @@ export const Main=(props:mainProps)=> {
   const [pageCount, setPageCount] = useState(1);
   const [apiError, setApiError] = useState(null);
 
+  const { org, repo } = useParams();
+
   
     useEffect(() => {
     // Using an IIFE
@@ -108,6 +111,7 @@ export const Main=(props:mainProps)=> {
   return (
     <div style={{ marginTop: "1rem" }}>
       <h3 className="repo-title">{props.orgName} GitHub repositories</h3>
+      <h2 className="repo-title">{org} {repo}</h2>
       <ReactPaginate
         previousLabel="Previous"
         nextLabel="Next"

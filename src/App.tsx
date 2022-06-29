@@ -20,8 +20,9 @@ export  const App = () => {
   };
   const AppRouters = () => {
     let routes = useRoutes([
-      { path: "/", element: <Main orgName="m3db" repoName="m3" perPage={2}/> },
+      { path: "/:org/:repo", element: <Main orgName="m3db" repoName="m3" perPage={2}/> },
       { path: "navigation", element: <Navigation /> },
+      { path: "/", element: <Navigation /> },
       { path: "*", element: <NoMatch /> },
     ]);
     return routes;
@@ -45,7 +46,7 @@ const Layout =() => {
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
       <nav>
-        <div className='main'><Link to="/">Main</Link></div>
+        <div className='main'><Link to="/m3db/m3">Main</Link></div>
          <div><Link to="/navigation">Navigation</Link></div>
       </nav>
       <hr />
