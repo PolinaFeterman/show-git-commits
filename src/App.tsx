@@ -20,7 +20,7 @@ export  const App = () => {
   };
   const AppRouters = () => {
     let routes = useRoutes([
-      { path: "/", element: <Main orgName="PolinaFeterman" perPage={2}/> },
+      { path: "/", element: <Main orgName="m3db" repoName="m3" perPage={2}/> },
       { path: "navigation", element: <Navigation /> },
       { path: "*", element: <NoMatch /> },
     ]);

@@ -11,7 +11,7 @@ import ReactDOM from "react-dom";
 // Util for GitHub API.
 
 function getGitHubPageCount(response:Response):number {
-  const REGEX_GITHUB_HEADER_LINK = /<\S*\&page=(\d)>; rel="last"/gm;
+  const REGEX_GITHUB_HEADER_LINK = /<\S*\&page=([0-9]+)>; rel="last"/gm;
   // Extract pageCount from Link header.
   const l =response.headers.get("Link");
   if(l){
@@ -23,8 +23,6 @@ function getGitHubPageCount(response:Response):number {
   return -1;
 }
 
-// Actual React-Paginate example.
-// https://github.com/AdeleD/react-paginate
 
 function Repositories({ repositories, className}: {
     repositories: Array<any>;
@@ -37,13 +35,12 @@ function Repositories({ repositories, className}: {
       </div>
     );
   }
-  // TODO Format with https://getbootstrap.com/docs/5.1/components/card/
-  //   https://getbootstrap.com/docs/5.1/components/list-group/
+
   return (
     <div className={className}>
       {repositories.map((repository, index) => (
         <div className="repository-entry" key={index}>
-          <h4>{repository.name} {index}</h4>
+          <h4>{repository.sha} {index}</h4>
         </div>
       ))}
     </div>
@@ -52,6 +49,7 @@ function Repositories({ repositories, className}: {
 
 export type mainProps={
     orgName:string;
+    repoName:string;
     perPage: number;
 }
 
@@ -71,8 +69,18 @@ export const Main=(props:mainProps)=> {
 
 
           });
+          const obj = {  
+            method: 'GET',
+            headers: {
+              'Authorization': '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',
+              'Content-Type': 'application/json',
+              // 'Origin': '',
+              // 'Host': 'api.producthunt.com'
+            }
+          }
         const response = await fetch(
-          `https://api.github.com/users/${props.orgName}/repos?${urlParams}`
+          ` https://api.github.com/repos/${props.orgName}/${props.repoName}/commits?${urlParams}`, obj
+          //`https://api.github.com/users/${props.orgName}/repos?${urlParams}`
         );
         const responseJson = await response.json();
         if (!response.ok) {
@@ -82,7 +90,6 @@ export const Main=(props:mainProps)=> {
           return;
         }
         const newPageCount = getGitHubPageCount(response);
-        console.log(responseJson, newPageCount);
         setRepositories(responseJson);
         if(newPageCount != -1){
             setPageCount(newPageCount);
@@ -127,7 +134,7 @@ export const Main=(props:mainProps)=> {
         </div>
       )}
       <Repositories className="listing" repositories={repositories} />
-      <ReactPaginate
+      {/* <ReactPaginate
         previousLabel="Previous"
         nextLabel="Next"
         pageClassName="page-item"
@@ -146,7 +153,7 @@ export const Main=(props:mainProps)=> {
         containerClassName="pagination"
         activeClassName="active"
         forcePage={pageOffset}
-      />
+      /> */}
     </div>
   );
 }

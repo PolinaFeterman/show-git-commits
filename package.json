@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
@@ -22,8 +20,9 @@
     "git-info": "node src/gitInfo.js",
     "start": "npm run git-info && react-scripts start",
     "build": "npm run git-info && react-scripts build",
-    "test": "npm run git-info && react-scripts test && jest",
-    "eject": "npm run git-info & react-scripts eject"
+    "eject": "npm run git-info & react-scripts eject",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -44,9 +43,15 @@
     ]
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
     "@babel/preset-typescript": "^7.17.12",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
     "@types/jest": "^27.5.2",
+    "babel-jest": "^28.1.1",
     "jest": "^28.1.1",
-    "jest-watch-typeahead": "^0.6.5"
+    "jest-watch-typeahead": "^0.6.5",
+    "react-test-renderer": "^18.2.0"
   }
 }
