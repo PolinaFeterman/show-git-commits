@@ -18,7 +18,7 @@ export const Main=(props:mainProps)=> {
   const [repositories, setRepositories] = useState([]);
   const [pageOffset, setPageOffset] = useState(0);
   const [pageCount, setPageCount] = useState(1);
-  const [apiError, setApiError] = useState(null);
+  const [apiError, setApiError] = useState('');
   const { org, repo } = useParams();
 
   useEffect(() => {
@@ -38,12 +38,10 @@ export const Main=(props:mainProps)=> {
       const response = await fetch(
         `https://api.github.com/repos/${props.orgName}/${props.repoName}/commits?${urlParams}`, obj
         //`https://api.github.com/users/${props.orgName}/repos?${urlParams}`
-      );
+        );
       const responseJson = await response.json();
       if (!response.ok) {
-        setApiError(responseJson.message);
-        setRepositories([]);
-        setPageCount(0);
+        handleResponseError(responseJson.message);
         return;
       }
       const newPageCount = PaginationService.getGitHubPageCount(response);
@@ -55,6 +53,11 @@ export const Main=(props:mainProps)=> {
   })();
 }, [pageOffset, props.perPage]);
 
+  const handleResponseError=(message:string)=>{
+    setApiError(message);
+    setRepositories([]);
+    setPageCount(0);
+  }
   const handlePageChange = (event:any) => {
     setPageOffset(event.selected);
   };
