@@ -31,13 +31,12 @@ export  const App = () => {
  return(
   <AppCtx.Provider value={sampleAppContext}>
     <div className="App">
-
-    <Router>
-      <Layout/>
-      <AppRouters />
-    </Router>
-    </div>
-    </AppCtx.Provider>)
+      <Router>
+        <Layout/>
+          <AppRouters />
+      </Router>
+      </div>
+  </AppCtx.Provider>)
 
 }
 const Layout =() => {
@@ -47,7 +46,7 @@ const Layout =() => {
           share across all the pages on your site, like navigation. */}
       <nav>
         <div className='main'><Link to="/m3db/m3">Main</Link></div>
-         <div><Link to="/navigation">Navigation</Link></div>
+        <div><Link to="/navigation">Navigation</Link></div>
       </nav>
       <hr />
 
