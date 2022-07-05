@@ -1,12 +1,15 @@
+
+
 import React, { useContext, useEffect, useState } from 'react';
 import  '../css/paginate.css'
 //import generatedGitInfo from '../generatedGitInfo.json';
 import { CommitCard }from './commitCard';
-import ReactPaginate from "react-paginate";
+import ReactPaginate from "react-paginate";  
 import ReactDOM from "react-dom";
 import { useParams } from 'react-router';
 import { PaginationService } from '../services/pagination';
 import { Commits } from './commits';
+import { Pagination } from '../pagination';
 
 export type mainProps={
     orgName:string;
@@ -23,22 +26,7 @@ export const Main=(props:mainProps)=> {
 
   useEffect(() => {
   (async ()=> {
-      const urlParams = new URLSearchParams({
-          "per_page": props.perPage.toString(),
-          "page": (pageOffset+1).toString()
-        });
-
-      const obj = {  
-        method: 'GET',
-        headers: {
-          'Authorization': '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',
-          'Content-Type': 'application/json',
-        }
-      }
-      const response = await fetch(
-        `https://api.github.com/repos/${props.orgName}/${props.repoName}/commits?${urlParams}`, obj
-        //`https://api.github.com/users/${props.orgName}/repos?${urlParams}`
-        );
+      const response = await PaginationService.fetchCommits(props.perPage.toString(),(pageOffset+1).toString(),org as string,repo as string);
       const responseJson = await response.json();
       if (!response.ok) {
         handleResponseError(responseJson.message);
@@ -58,31 +46,9 @@ export const Main=(props:mainProps)=> {
     setRepositories([]);
     setPageCount(0);
   }
-  const handlePageChange = (event:any) => {
+  const handlePageChange = (event:{selected:number}) => {
     setPageOffset(event.selected);
   };
-  const getReactPaginate=()=>{
-    return <ReactPaginate
-    previousLabel="Previous"
-    nextLabel="Next"
-    pageClassName="page-item"
-    pageLinkClassName="page-link"
-    previousClassName="page-item"
-    previousLinkClassName="page-link"
-    nextClassName="page-item"
-    nextLinkClassName="page-link"
-    breakLabel="..."
-    breakClassName="page-item"
-    breakLinkClassName="page-link"
-    pageCount={pageCount}
-    marginPagesDisplayed={2}
-    pageRangeDisplayed={5}
-    onPageChange={handlePageChange}
-    containerClassName="pagination"
-    activeClassName="active"
-    forcePage={pageOffset}
-  />
-  }
   const getApiError=()=>{
     return apiError && (
       <div className="alert alert-danger" role="alert">
@@ -95,34 +61,9 @@ export const Main=(props:mainProps)=> {
     <div style={{ marginTop: "1rem" }}>
       <h3 className="repo-title">{props.orgName} GitHub repositories</h3>
       <h2 className="repo-title">{org} {repo}</h2>
-      {getReactPaginate()}
+      <Pagination pageCount={pageCount} handlePageChange={handlePageChange} pageOffset={pageOffset}/>
       {getApiError()}
       <Commits className="listing" repositories={repositories} />
     </div>
   );
 }
-
-
-
-// export const Main=()=>{
-//    const [length,setLength] = useState(0);
-//     const [abs,setAbs] = useState<boolean>(true);
-    
-// const updateAPI = useEffect(()=>{
-//    // fetch callAPI(abs);
-// }, [abs]);
-
-//     const f = () => {
-//      setLength(length + 1);
-//     };
-//     return (
-//         <>
-//         <button onClick = {f}> {length}</button>
-//     <div className="git-info">{
-       
-//         generatedGitInfo.map((info,index) => {return <div key={index}>
-//             <CommitCard gitBranch={info.gitBranch} gitCommitHash={info.gitCommitHash}/></div>})}
- 
-//   </div>
-//   </>)
-//  }

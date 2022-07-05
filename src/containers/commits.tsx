@@ -5,8 +5,8 @@ export type commitsProps = {
     className: string;
 };
 
-export const Commits = ({ repositories, className }: commitsProps) => {
-  if (repositories.length === 0) {
+export const Commits = (data: commitsProps) => {
+  if (data.repositories.length === 0) {
     return (
       <div className="alert alert-warning" role="alert">
         No results.
@@ -15,8 +15,8 @@ export const Commits = ({ repositories, className }: commitsProps) => {
   }
 
   return (
-    <div className={className}>
-      {repositories.map((repository, index) => (
+    <div className={data.className}>
+      {data.repositories.map((repository, index) => (
         <div className="repository-entry" key={index}>
            <CommitCard gitBranch={repository.sha} gitCommitHash={index.toString()}/>
         </div>
