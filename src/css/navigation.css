@@ -1,14 +1,14 @@
 
 .input{
     width: 50%;
-  margin:  0 auto;
-  height: 50px;
+    margin:  0 auto;
+    height: 50px;
 }
 .rounded{
     
-        border-radius: 10px;
-        border: 2px solid #0d6efd;
-        width: 200px;
+    border-radius: 10px;
+    border: 2px solid #0d6efd;
+    width: 200px;
       
 }
 .label{

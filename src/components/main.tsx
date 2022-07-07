@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import  '../css/paginate.css'
 import  '../css/main.css'
 //import generatedGitInfo from '../generatedGitInfo.json';
 import { CommitCard }from './commit-card';
@@ -9,7 +8,7 @@ import { useParams } from 'react-router';
 import { fetchCommitsData, PaginationService } from '../services/pagination';
 import { Commits } from './commits';
 import { Pagination } from '../pagination';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppCtx } from '../App';
 import AppContextInterface from '../interfaces/app-context-interface';
 import CommitCardInterface from '../interfaces/commit-card-interface';
@@ -78,6 +77,12 @@ export const Main=(props:mainProps)=> {
   const className = commitsInfoLenght>0? "mainDiv": "hidden";
   return (
     <div className={className}>
+      <div className="backWrapper">
+       <Link to="/navigation" className="settingsLink">
+     <button type="button" className="settingsButton">
+     Back to Settings
+     </button>
+ </Link> </div>
       <h3 className="repo-title">{props.orgName} GitHub repositories</h3>
       <h2 className="repo-title">{org} {repo}</h2>
       <div className="paginationWrapper">

@@ -48,14 +48,16 @@ export  const App = () => {
 }
 const Layout =() => {
   return (
-    <div>
+    <div className="header">
       {/* A "layout route" is a good place to put markup you want to
           share across all the pages on your site, like navigation. */}
-      <nav>
+      {/* <nav>
         <div className='main'><Link to="/m3db/m3">Main</Link></div>
         <div><Link to="/navigation">Navigation</Link></div>
       </nav>
-      <hr />
+      <hr /> */}
+
+     <h3> Commit Feed </h3>
 
       {/* An <Outlet> renders whatever child route is currently active,
           so you can think about this <Outlet> as a placeholder for
