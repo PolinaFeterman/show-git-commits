@@ -1,7 +1,8 @@
-import { CommitCard } from "./commitCard";
+import CommitCardInterface from "../interfaces/commit-card-interface";
+import { CommitCard } from "./commit-card";
 
 export type commitsProps = {
-    repositories: Array<any>;
+    repositories: Array<CommitCardInterface>;
     className: string;
 };
 
@@ -18,7 +19,7 @@ export const Commits = (data: commitsProps) => {
     <div className={data.className}>
       {data.repositories.map((repository, index) => (
         <div className="repository-entry" key={index}>
-           <CommitCard gitBranch={repository.sha} gitCommitHash={index.toString()}/>
+           <CommitCard commitAuthor={repository.commitAuthor} commitDate={repository.commitDate} commitMessage={repository.commitMessage} commitUrl={repository.commitUrl} />
         </div>
       ))}
     </div>

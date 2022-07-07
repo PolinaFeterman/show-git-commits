@@ -1,9 +1,9 @@
 import { createContext } from "react";
 import './App.css';
-import { Main } from './containers/main';
-import { Navigation } from './containers/navigation';
-import { DoesNotExist } from './containers/does-not-exist';
-import AppContextInterface from "./interfaces/AppContextInterface";
+import { Main } from './components/main';
+import { Navigation } from './components/navigation';
+import { DoesNotExist } from './components/does-not-exist';
+import AppContextInterface from "./interfaces/app-context-interface";
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,10 +16,8 @@ import {
 
 export  const AppCtx = createContext<AppContextInterface | null>(null);
 export  const App = () => {
-  const sampleAppContext: AppContextInterface = {
-    name: "Using React Context in a Typescript App",
-    author: "thehappybug",
-    url: "http://www.example.com",
+  const appContext: AppContextInterface = {
+    perPage: 10
   };
   // const AppRouters = () => {
   //   const routes = useRoutes([
@@ -32,7 +30,7 @@ export  const App = () => {
   // };
 
  return(
-  <AppCtx.Provider value={sampleAppContext}>
+  <AppCtx.Provider value={appContext}>
     <div className="App">
       <BrowserRouter>
         <Layout/>
