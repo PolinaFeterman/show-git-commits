@@ -1,0 +1,10 @@
+.mainDiv{
+    margin-top: "1rem"
+}
+.paginationWrapper{
+    width: 30%;
+    margin: 0 auto;
+}
+.hidden{
+    display:none;
+}

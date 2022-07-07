@@ -1,14 +1,17 @@
 import { createContext } from "react";
 import './App.css';
 import { Main } from './containers/main';
-import {Navigation} from './containers/navigation';
+import { Navigation } from './containers/navigation';
+import { DoesNotExist } from './containers/does-not-exist';
 import AppContextInterface from "./interfaces/AppContextInterface";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   useRoutes,
-  Outlet, Link
+  Outlet, Link, 
+  Navigate,
+  BrowserRouter
 } from "react-router-dom";
 
 export  const AppCtx = createContext<AppContextInterface | null>(null);
@@ -18,23 +21,29 @@ export  const App = () => {
     author: "thehappybug",
     url: "http://www.example.com",
   };
-  const AppRouters = () => {
-    let routes = useRoutes([
-      { path: "/:org/:repo", element: <Main orgName="m3db" repoName="m3" perPage={2}/> },
-      { path: "navigation", element: <Navigation /> },
-      { path: "/", element: <Navigation /> },
-      { path: "*", element: <NoMatch /> },
-    ]);
-    return routes;
-  };
+  // const AppRouters = () => {
+  //   const routes = useRoutes([
+  //     { path: "/:org/:repo", element: <Main orgName="m3db" repoName="m3" perPage={2}/> },
+  //     { path: "navigation", element: <Navigation /> },
+  //     { path: "/", element: <Navigation /> },
+  //     { path: "*", element: <NoMatch /> },
+  //   ]);
+  //   return routes;
+  // };
 
  return(
   <AppCtx.Provider value={sampleAppContext}>
     <div className="App">
-      <Router>
+      <BrowserRouter>
         <Layout/>
-          <AppRouters />
-      </Router>
+        <Routes>
+          <Route  path="/" element={<Navigation />}/>
+          <Route  path="navigation" element={<Navigation />}/>
+          <Route  path="/:org/:repo" element={<Main/>}/>
+          <Route  path="/does/not/exist" element={<DoesNotExist />}/>
+          <Route path="*" element={<Navigate to="/does/not/exist" replace />} />
+      </Routes>
+      </BrowserRouter>
       </div>
   </AppCtx.Provider>)
 
@@ -58,14 +67,14 @@ const Layout =() => {
   );
 }
 
-function NoMatch() {
-  return (
-    <div>
-      <h2>Nothing to see here!</h2>
-      <p>
-        <Link to="/">Go to the home page</Link>
-      </p>
-    </div>
-  );
-}
+// function NoMatch() {
+//   return (
+//     <div>
+//       <h2>Nothing to see here!</h2>
+//       <p>
+//         <Link to="/">Go to the home page</Link>
+//       </p>
+//     </div>
+//   );
+// }
 
