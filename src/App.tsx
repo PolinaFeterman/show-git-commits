@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import './App.css';
 import { Main } from './components/main';
-import { Navigation } from './components/navigation';
+import { Navigation } from './components/settings';
 import { DoesNotExist } from './components/does-not-exist';
 import AppContextInterface from "./interfaces/app-context-interface";
 import {

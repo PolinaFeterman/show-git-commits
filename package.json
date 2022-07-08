@@ -19,9 +19,9 @@
   },
   "scripts": {
     "git-info": "node src/gitInfo.js",
-    "start": "npm run git-info && react-scripts start",
-    "build": "npm run git-info && react-scripts build",
-    "eject": "npm run git-info & react-scripts eject",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
     "test": "jest",
     "test:watch": "jest --watch"
   },
