@@ -1,7 +1,7 @@
 import { createContext } from "react";
 import "./css/app.css";
 import { Main } from "./components/main";
-import { Navigation } from "./components/settings";
+import { Settings } from "./components/settings";
 import { DoesNotExist } from "./components/does-not-exist";
 import AppContextInterface from "./interfaces/app-context-interface";
 import {
@@ -23,8 +23,8 @@ export const App = () => {
         <BrowserRouter>
           <Layout />
           <Routes>
-            <Route path="/" element={<Navigation />} />
-            <Route path="navigation" element={<Navigation />} />
+            <Route path="/" element={<Settings />} />
+            <Route path="settings" element={<Settings />} />
             <Route path="/:org/:repo" element={<Main />} />
             <Route path="/does/not/exist" element={<DoesNotExist />} />
             <Route

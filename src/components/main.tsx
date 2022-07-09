@@ -20,16 +20,16 @@ export type mainProps = {
 };
 
 export const Main = (props: mainProps) => {
-  const [repositories, setRepositories] = useState([
+  const [repositories, setRepositories] = React.useState([
     { commitDate: "", commitAuthor: "", commitMessage: "", commitUrl: "" },
   ]);
-  const [pageOffset, setPageOffset] = useState(0);
-  const [pageCount, setPageCount] = useState(1);
-  const [commitsInfoLength, setCommitsInfoLength] = useState(0);
+  const [pageOffset, setPageOffset] = React.useState(0);
+  const [pageCount, setPageCount] = React.useState(1);
+  const [commitsInfoLength, setCommitsInfoLength] = React.useState(0);
   // const [apiError, setApiError] = useState('');
   const { org, repo } = useParams();
   const navigate = useNavigate();
-  const appContext = useContext(AppCtx) as AppContextInterface;
+  const appContext = React.useContext(AppCtx) as AppContextInterface;
 
   useEffect(() => {
     (async () => {
@@ -72,7 +72,7 @@ export const Main = (props: mainProps) => {
   return (
     <div className={className}>
       <div className="backWrapper">
-        <Link to="/navigation" className="settingsLink">
+        <Link to="/settings" className="settingsLink">
           <button type="button" className="settingsButton">
             Back to Settings
           </button>

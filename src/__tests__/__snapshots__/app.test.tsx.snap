@@ -12,6 +12,7 @@ exports[`App should render correctly 1`] = `
     </h3>
   </div>
   <form
+    data-testid="form"
     onSubmit={[Function]}
   >
     <div
@@ -19,10 +20,12 @@ exports[`App should render correctly 1`] = `
     >
       <label
         className="input label"
+        id="organization"
       >
         Organization:
       </label>
       <input
+        aria-labelledby="organization"
         className="rounded"
         onChange={[Function]}
         type="text"
@@ -34,10 +37,12 @@ exports[`App should render correctly 1`] = `
     >
       <label
         className="label"
+        id="repo"
       >
-        Repo: 
+        Repo:
       </label>
       <input
+        aria-labelledby="repo"
         className="rounded"
         onChange={[Function]}
         type="text"
@@ -49,158 +54,12 @@ exports[`App should render correctly 1`] = `
     >
       <label
         className="label"
+        id="perPage"
       >
         Commits per page:
       </label>
       <input
-        className="rounded"
-        onChange={[Function]}
-        type="number"
-        value="10"
-      />
-    </div>
-    <div
-      className="button"
-    >
-      <button
-        className="rounded"
-        disabled={true}
-        type="submit"
-      >
-        Submit
-      </button>
-    </div>
-  </form>
-</div>
-`;
-
-exports[`should render correctly 1`] = `
-<div
-  className="app"
->
-  <div
-    className="header"
-  >
-    <h3>
-       Commit Feed 
-    </h3>
-  </div>
-  <form
-    onSubmit={[Function]}
-  >
-    <div
-      className="input"
-    >
-      <label
-        className="input label"
-      >
-        Organization:
-      </label>
-      <input
-        className="rounded"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </div>
-    <div
-      className="input"
-    >
-      <label
-        className="label"
-      >
-        Repo: 
-      </label>
-      <input
-        className="rounded"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </div>
-    <div
-      className="input"
-    >
-      <label
-        className="label"
-      >
-        Commits per page:
-      </label>
-      <input
-        className="rounded"
-        onChange={[Function]}
-        type="number"
-        value="10"
-      />
-    </div>
-    <div
-      className="button"
-    >
-      <button
-        className="rounded"
-        disabled={true}
-        type="submit"
-      >
-        Submit
-      </button>
-    </div>
-  </form>
-</div>
-`;
-
-exports[`should reneder correctly 1`] = `
-<div
-  className="app"
->
-  <div
-    className="header"
-  >
-    <h3>
-       Commit Feed 
-    </h3>
-  </div>
-  <form
-    onSubmit={[Function]}
-  >
-    <div
-      className="input"
-    >
-      <label
-        className="input label"
-      >
-        Organization:
-      </label>
-      <input
-        className="rounded"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </div>
-    <div
-      className="input"
-    >
-      <label
-        className="label"
-      >
-        Repo: 
-      </label>
-      <input
-        className="rounded"
-        onChange={[Function]}
-        type="text"
-        value=""
-      />
-    </div>
-    <div
-      className="input"
-    >
-      <label
-        className="label"
-      >
-        Commits per page:
-      </label>
-      <input
+        aria-labelledby="perPage"
         className="rounded"
         onChange={[Function]}
         type="number"

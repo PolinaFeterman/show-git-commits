@@ -1,54 +1,50 @@
-import { FormEventHandler, useContext, useEffect, useState } from "react";
-import { AppCtx } from "../app";
+import "../css/settings.css";
 import AppContextInterface from "../interfaces/app-context-interface";
-import "../css/navigation.css";
-
+import { AppCtx } from "../app";
+import React,{ FormEventHandler, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const Navigation = () => {
-  const appContext = useContext(AppCtx) as AppContextInterface;
-  //  return (<div>{appContext.name}</div>)
-  const [org, setOrg] = useState("");
-  const [repo, setRepo] = useState("");
-  const [perPage, setPerPage] = useState(appContext.perPage.toString());
+export const Settings = () => {
+  const appContext = React.useContext(AppCtx) as AppContextInterface;
+
+  const [org, setOrg] = React.useState("");
+  const [repo, setRepo] = React.useState("");
+  const [perPage, setPerPage] = React.useState(appContext.perPage.toString());
+
   const navigate = useNavigate();
-  // useEffect(() => {
-
-  //        return navigate("/m3db/m3");
-
-  //  },[org, repo]);
   const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
-    // setOrg('m3db');
-    // setRepo('m3');
     appContext.perPage = Number(perPage);
     event.preventDefault();
     return navigate(`/${org}/${repo}`);
   };
 
   return (
-    <form onSubmit={submitForm}>
+    <form onSubmit={submitForm} data-testid="form">
       <div className="input">
-        <label className="input label">Organization:</label>
+        <label id="organization" className="input label">Organization:</label>
         <input
           className="rounded"
+          aria-labelledby="organization"
           type="text"
           value={org}
           onChange={(e) => setOrg(e.target.value)}
         />
       </div>
       <div className="input">
-        <label className="label">Repo: </label>
+        <label id="repo" className="label">Repo:</label>
         <input
           className="rounded"
+          aria-labelledby="repo"
           type="text"
           value={repo}
           onChange={(e) => setRepo(e.target.value)}
         />
       </div>
       <div className="input">
-        <label className="label">Commits per page:</label>
+        <label id="perPage" className="label">Commits per page:</label>
         <input
           className="rounded"
+          aria-labelledby="perPage"
           type="number"
           value={perPage}
           onChange={(e) => setPerPage(e.target.value)}

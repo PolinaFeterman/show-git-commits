@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Settings should render correctly 1`] = `
+<form
+  data-testid="form"
+  onSubmit={[Function]}
+>
+  <div
+    className="input"
+  >
+    <label
+      className="input label"
+      id="organization"
+    >
+      Organization:
+    </label>
+    <input
+      aria-labelledby="organization"
+      className="rounded"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="input"
+  >
+    <label
+      className="label"
+      id="repo"
+    >
+      Repo:
+    </label>
+    <input
+      aria-labelledby="repo"
+      className="rounded"
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="input"
+  >
+    <label
+      className="label"
+      id="perPage"
+    >
+      Commits per page:
+    </label>
+    <input
+      aria-labelledby="perPage"
+      className="rounded"
+      onChange={[Function]}
+      type="number"
+      value="10"
+    />
+  </div>
+  <div
+    className="button"
+  >
+    <button
+      className="rounded"
+      disabled={true}
+      type="submit"
+    >
+      Submit
+    </button>
+  </div>
+</form>
+`;
