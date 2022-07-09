@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should render correctly 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="header"
+  >
+    <h3>
+       Commit Feed 
+    </h3>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="input"
+    >
+      <label
+        className="input label"
+      >
+        Organization:
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="input"
+    >
+      <label
+        className="label"
+      >
+        Repo: 
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="input"
+    >
+      <label
+        className="label"
+      >
+        Commits per page:
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="number"
+        value="10"
+      />
+    </div>
+    <div
+      className="button"
+    >
+      <button
+        className="rounded"
+        disabled={true}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`should render correctly 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="header"
+  >
+    <h3>
+       Commit Feed 
+    </h3>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="input"
+    >
+      <label
+        className="input label"
+      >
+        Organization:
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="input"
+    >
+      <label
+        className="label"
+      >
+        Repo: 
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="input"
+    >
+      <label
+        className="label"
+      >
+        Commits per page:
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="number"
+        value="10"
+      />
+    </div>
+    <div
+      className="button"
+    >
+      <button
+        className="rounded"
+        disabled={true}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+`;
+
+exports[`should reneder correctly 1`] = `
+<div
+  className="app"
+>
+  <div
+    className="header"
+  >
+    <h3>
+       Commit Feed 
+    </h3>
+  </div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="input"
+    >
+      <label
+        className="input label"
+      >
+        Organization:
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="input"
+    >
+      <label
+        className="label"
+      >
+        Repo: 
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="input"
+    >
+      <label
+        className="label"
+      >
+        Commits per page:
+      </label>
+      <input
+        className="rounded"
+        onChange={[Function]}
+        type="number"
+        value="10"
+      />
+    </div>
+    <div
+      className="button"
+    >
+      <button
+        className="rounded"
+        disabled={true}
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</div>
+`;

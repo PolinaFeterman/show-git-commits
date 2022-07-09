@@ -1,5 +1,5 @@
 import { FormEventHandler, useContext, useEffect, useState } from "react";
-import { AppCtx } from "../App";
+import { AppCtx } from "../app";
 import AppContextInterface from "../interfaces/app-context-interface";
 import "../css/navigation.css";
 
@@ -55,7 +55,7 @@ export const Navigation = () => {
         />
       </div>
       <div className="button">
-        <button type="submit" className="rounded">
+        <button type="submit" className="rounded" disabled={!repo || !org}>
           Submit
         </button>
       </div>

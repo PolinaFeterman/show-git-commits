@@ -1,10 +1,16 @@
 import React from "react";
-import { render, fireEvent } from "@testing-library/react"; //waitForElement
+import { render, screen } from "@testing-library/react";
+import renderer from "react-test-renderer";
+import { App } from "../app";
 
-//import App from "../App";
-
-describe("<App />", () => {
-  test("should display a blank login form, with remember me checked by default", async () => {
-    // ???
+describe("App", () => {
+  test("should render header", () => {
+    render(<App />);
+    const header = screen.getByText("Commit Feed");
+    expect(header).toBeInTheDocument();
+  });
+  test("should render correctly", () => {
+    const tree = renderer.create(<App />).toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });

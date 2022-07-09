@@ -7,9 +7,9 @@ import ReactDOM from "react-dom";
 import { useParams } from "react-router";
 import { fetchCommitsData, PaginationService } from "../services/pagination";
 import { Commits } from "./commits";
-import { Pagination } from "../pagination";
+import { Pagination } from "./pagination";
 import { Link, useNavigate } from "react-router-dom";
-import { AppCtx } from "../App";
+import { AppCtx } from "../app";
 import AppContextInterface from "../interfaces/app-context-interface";
 import CommitCardInterface from "../interfaces/commit-card-interface";
 
