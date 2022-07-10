@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
 
-export const DoesNotExist=()=> {
-    return (
-      <div>
-        <h2>Nothing to see here!</h2>
-        <p>
-          <Link to="/">Go to the Settings page</Link>
-        </p>
-      </div>
-    );
-    }
-  
+export const DoesNotExist = () => {
+  return (
+    <div>
+      <h2>Nothing to see here!</h2>
+      <p>
+        <Link to="/">Go to the Settings page</Link>
+      </p>
+    </div>
+  );
+};

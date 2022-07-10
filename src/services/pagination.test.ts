@@ -1,10 +1,19 @@
 import { PaginationService } from "./pagination";
 import { responseMock, headerLinkMock } from "../mock/response";
 
+const unmockedFetch = global.fetch;
+
+beforeAll(() => {
+  global.fetch = jest.fn(() => Promise.resolve(1)) as jest.Mock;
+});
+
+afterAll(() => {
+  global.fetch = unmockedFetch;
+});
 describe("PaginationService", () => {
   test("should get commit info", async () => {
     const mockResponse: any = {
-      json: jest.fn().mockResolvedValue(responseMock)
+      json: jest.fn().mockResolvedValue(responseMock),
     };
 
     const result = await PaginationService.getCommitsInfo(mockResponse);
@@ -27,9 +36,18 @@ describe("PaginationService", () => {
   });
   test("should get count", () => {
     const mockHeader: any = {
-        get: jest.fn().mockReturnValue(headerLinkMock)
-      };
+      get: jest.fn().mockReturnValue(headerLinkMock),
+    };
     const result = PaginationService.getGitHubPageCount(mockHeader);
     expect(result).toBe(420);
-  })
+  });
+  test("should fetch commits", async () => {
+    const response = await PaginationService.fetchCommits({
+      perPage: "4",
+      pageOffset: "1",
+      orgName: "m3db",
+      repoName: "m3",
+    });
+    expect(response).toBe(1);
+  });
 });

@@ -1,4 +1,3 @@
-import React from "react";
 import "../css/commit-card.css";
 import CommitCardInterface from "../interfaces/commit-card-interface";
 

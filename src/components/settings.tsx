@@ -1,7 +1,7 @@
 import "../css/settings.css";
 import AppContextInterface from "../interfaces/app-context-interface";
 import { AppCtx } from "../app";
-import React,{ FormEventHandler, useContext, useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export const Settings = () => {
@@ -21,7 +21,9 @@ export const Settings = () => {
   return (
     <form onSubmit={submitForm} data-testid="form">
       <div className="input">
-        <label id="organization" className="input label">Organization:</label>
+        <label id="organization" className="input label">
+          Organization:
+        </label>
         <input
           className="rounded"
           aria-labelledby="organization"
@@ -32,7 +34,9 @@ export const Settings = () => {
         />
       </div>
       <div className="input">
-        <label id="repo" className="label">Repo:</label>
+        <label id="repo" className="label">
+          Repo:
+        </label>
         <input
           className="rounded"
           aria-labelledby="repo"
@@ -43,7 +47,9 @@ export const Settings = () => {
         />
       </div>
       <div className="input">
-        <label id="perPage" className="label">Commits per page:</label>
+        <label id="perPage" className="label">
+          Commits per page:
+        </label>
         <input
           className="rounded"
           aria-labelledby="perPage"
