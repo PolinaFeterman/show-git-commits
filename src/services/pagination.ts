@@ -24,9 +24,9 @@ export const PaginationService = class PaginationClass {
     );
     return commits;
   }
-  public static getGitHubPageCount(response: Response): number {
+  public static getGitHubPageCount(headers: Headers): number {
     const REGEX_GITHUB_HEADER_LINK = /<\S*&page=([0-9]+)>; rel="last"/gm;
-    const l = response.headers.get("Link");
+    const l = headers.get("Link");
     if (l) {
       const link = REGEX_GITHUB_HEADER_LINK.exec(l);
       if (link) {

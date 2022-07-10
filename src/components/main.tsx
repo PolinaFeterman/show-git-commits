@@ -33,7 +33,7 @@ export const Main = () => {
         setPageCount(0);
         return navigate("/does/not/exist");
       }
-      const newPageCount = PaginationService.getGitHubPageCount(response);
+      const newPageCount = PaginationService.getGitHubPageCount(response.headers);
       const commitsInfo = await PaginationService.getCommitsInfo(response);
       setRepositories(commitsInfo);
       setCommitsInfoLength(commitsInfo.length);
