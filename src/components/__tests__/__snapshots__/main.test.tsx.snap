@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main should render correctly 1`] = `
+<div
+  className="hidden"
+>
+  <div
+    className="backWrapper"
+  >
+    <a
+      className="settingsLink"
+      href="/settings"
+      onClick={[Function]}
+    >
+      <button
+        className="settingsButton"
+        type="button"
+      >
+        Back to Settings
+      </button>
+    </a>
+     
+  </div>
+  <h2
+    className="repo-title"
+  >
+    Commits from 
+    , repository 
+  </h2>
+  <div
+    className="paginationWrapper"
+  >
+    <ul
+      className="pagination"
+    >
+      <li
+        className="page-item disabled"
+      >
+        <a
+          aria-disabled="true"
+          aria-label="Previous page"
+          className="page-link "
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          rel="prev"
+          role="button"
+          tabIndex="-1"
+        >
+          Previous
+        </a>
+      </li>
+      <li
+        className="page-item active"
+      >
+        <a
+          aria-current="page"
+          aria-label="Page 1 is your current page"
+          className="page-link"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          rel="canonical"
+          role="button"
+          tabIndex="-1"
+        >
+          1
+        </a>
+      </li>
+      <li
+        className="page-item disabled"
+      >
+        <a
+          aria-disabled="true"
+          aria-label="Next page"
+          className="page-link "
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          rel="next"
+          role="button"
+          tabIndex="-1"
+        >
+          Next
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div
+    className="listing"
+  >
+    <div
+      className="repository-entry"
+    >
+      <div
+        className="commit-card"
+      >
+        <p>
+          <strong>
+            Commit author: 
+          </strong>
+           
+        </p>
+        <p>
+          <strong>
+            Commit date: 
+          </strong>
+           
+          Invalid Date
+        </p>
+        <p>
+          <strong>
+            Commit message: 
+          </strong>
+           
+        </p>
+        <p>
+          <strong>
+            Commit url: 
+          </strong>
+           
+          <a
+            href=""
+          />
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+`;

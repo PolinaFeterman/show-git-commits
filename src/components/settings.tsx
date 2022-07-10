@@ -25,6 +25,7 @@ export const Settings = () => {
         <input
           className="rounded"
           aria-labelledby="organization"
+          name="organization"
           type="text"
           value={org}
           onChange={(e) => setOrg(e.target.value)}
@@ -35,6 +36,7 @@ export const Settings = () => {
         <input
           className="rounded"
           aria-labelledby="repo"
+          name="repo"
           type="text"
           value={repo}
           onChange={(e) => setRepo(e.target.value)}
@@ -45,6 +47,7 @@ export const Settings = () => {
         <input
           className="rounded"
           aria-labelledby="perPage"
+          name="perPage"
           type="number"
           value={perPage}
           onChange={(e) => setPerPage(e.target.value)}

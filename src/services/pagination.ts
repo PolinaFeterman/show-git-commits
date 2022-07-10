@@ -52,7 +52,6 @@ export const PaginationService = class PaginationClass {
     const response = await fetch(
       `https://api.github.com/repos/${data.orgName}/${data.repoName}/commits?${urlParams}`,
       obj
-      //`https://api.github.com/users/${props.orgName}/repos?${urlParams}`
     );
     return response;
   }
